@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.colin.pojo.User">
+    <insert id="insertUser">
+        INSERT INTO t_user(id,username,password) VALUES(#{id},#{username},#{password})
+    </insert>
+
+    <insert id="insertUserMap">
+        INSERT INTO t_user(id,username,password) VALUES(#{id},#{name},#{password})
+    </insert>
+
+    <delete id="deleteUserById">
+        DELETE FROM t_user WHERE id = #{id}
+    </delete>
+
+    <update id="updateUser">
+        UPDATE t_user SET username = #{username},password = #{password} WHERE id=#{id}
+    </update>
+
+    <select id="selectUserById" resultType="com.colin.pojo.User">
+        SELECT id,username,password FROM t_user WHERE id = #{id}
+    </select>
+
+    <select id="selectUserList" resultType="com.colin.pojo.User">
+        SELECT id,username,password FROM t_user
+    </select>
+
+</mapper>
